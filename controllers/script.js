@@ -65,9 +65,13 @@ exports.getScript = (req, res, next) => {
                 user.study_days.set(current_day, user.study_days[current_day] + 1);
             }
 
+           // scriptFilter = "study3_n80";
+            //profileFilter = "study_n80_p60";
+
             //Get the newsfeed
             Script.find()
                 .where('time').lte(time_diff).gte(time_limit)
+                .where("study3_n80").equals("yes")
                 .sort('-time')
                 .populate('actor')
                 .populate({
