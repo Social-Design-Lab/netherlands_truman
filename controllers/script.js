@@ -71,7 +71,7 @@ exports.getScript = (req, res, next) => {
             //Get the newsfeed
             Script.find()
                 .where('time').lte(time_diff).gte(time_limit)
-                .where("study3_n80").equals("yes")
+                //.where("study3_n80").equals("yes")
                 .sort('-time')
                 .populate('actor')
                 .populate({
